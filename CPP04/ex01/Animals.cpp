@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:56:53 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/17 11:24:50 by lboiteux         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:26:17 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Animal::Animal() : _type("Animal") {
     new Brain();
     std::cout << "\033[32m" << "An animal has been created" << "\033[0m" << std::endl;
 }
-
+// test
 Animal::~Animal() {
     delete _brain;
     std::cout << "\033[31m" << "An animal has been destroyed" << "\033[0m" << std::endl;
