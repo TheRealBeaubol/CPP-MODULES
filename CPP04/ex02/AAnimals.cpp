@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   AAnimals.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:56:53 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/23 19:04:41 by lboiteux         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:03:56 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#include "AAnimals.hpp"
 
-Animal::Animal() : _type("Animal") {
+AAnimal::AAnimal() : _type("AAnimal") {
     std::cout << "\033[32m" << "An animal has been created" << "\033[0m" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type) {
+AAnimal::AAnimal(std::string type) : _type(type) {
     std::cout << "\033[32m" << "An animal has been created" << "\033[0m" << std::endl;
 }
 
-Animal::Animal(const Animal &animal) :_type(animal._type) {
+AAnimal::AAnimal(const AAnimal &animal) :_type(animal._type) {
     std::cout << "\033[32m" << "An animal has been created" << "\033[0m" << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &other) {
+AAnimal &AAnimal::operator=(const AAnimal &other) {
     std::cout << "\033[32m" << "An animal has been created" << "\033[0m" << std::endl;
     if (this != &other) {
         _type = other._type;
     }
     return *this;
 }
-Animal::~Animal() {
+
+AAnimal::~AAnimal() {
     std::cout << "\033[31m" << "An animal has been destroyed" << "\033[0m" << std::endl;
 }
 
-void Animal::makeSound() const {
+void AAnimal::makeSound() const {
     std::cout << "\033[1m\033[36m" << "An animal make a sound" << "\033[0m" << std::endl;
 }
 
-std::string Animal::getType() const {
+std::string AAnimal::getType() const {
     return _type;
 }
 
@@ -49,18 +50,18 @@ Dog::Dog(){
     std::cout << "\033[32m" << "A dog has been created" << "\033[0m" << std::endl;
 }
 
-Dog::Dog(std::string type) : Animal(type), _brain(new Brain()) {
+Dog::Dog(std::string type) : AAnimal(type), _brain(new Brain()) {
     std::cout << "\033[32m" << "A dog has been created" << "\033[0m" << std::endl;
 }
 
-Dog::Dog(const Dog &dog) : Animal(dog), _brain(new Brain(*dog._brain)) {
+Dog::Dog(const Dog &dog) : AAnimal(dog), _brain(new Brain(*dog._brain)) {
     std::cout << "\033[32m" << "A dog has been created" << "\033[0m" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other) {
     std::cout << "\033[32m" << "A dog has been created" << "\033[0m" << std::endl;
     if (this != &other) {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         delete _brain;
         _brain = new Brain(*other._brain);
     }
@@ -78,18 +79,18 @@ Cat::Cat() {
     std::cout << "\033[32m" << "A cat has been created" << "\033[0m" << std::endl;
 }
 
-Cat::Cat(std::string type) : Animal(type), _brain(new Brain()) {
+Cat::Cat(std::string type) : AAnimal(type), _brain(new Brain()) {
     std::cout << "\033[32m" << "A cat has been created" << "\033[0m" << std::endl;
 }
 
-Cat::Cat(const Cat &cat) : Animal(cat), _brain(new Brain(*cat._brain)) {
+Cat::Cat(const Cat &cat) : AAnimal(cat), _brain(new Brain(*cat._brain)) {
     std::cout << "\033[32m" << "A cat has been created" << "\033[0m" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other) {
     std::cout << "\033[32m" << "A cat has been created" << "\033[0m" << std::endl;
     if (this != &other) {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         delete _brain;
         _brain = new Brain(*other._brain);
     }

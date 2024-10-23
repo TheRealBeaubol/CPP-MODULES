@@ -6,17 +6,17 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:56:21 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/08 17:24:17 by lboiteux         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:59:13 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#include "AAnimals.hpp"
 #include "WrongAnimals.hpp"
 
 int main()
 {
     int ArraySize = 10;
-    Animal *animals[ArraySize];
+    AAnimal *animals[ArraySize];
 
     for (int i = 0; i < ArraySize; i++) {
         if (i % 2 == 0) {

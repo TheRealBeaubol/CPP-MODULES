@@ -6,15 +6,29 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:29:11 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/08 19:03:05 by lboiteux         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:42:54 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
+AMateria::AMateria() : _type("Default") {}
+
 AMateria::AMateria(std::string const & type) : _type(type) {
     std::cout << "\033[32m" << "A materia has been created" << "\033[0m" << std::endl;
+}
+
+AMateria::AMateria(const AMateria &amateria) : _type(amateria._type) {
+    std::cout << "\033[32m" << "A materia has been created" << "\033[0m" << std::endl;
+}
+
+AMateria &AMateria::operator=(const AMateria &other) {
+    std::cout << "\033[32m" << "A materia has been created" << "\033[0m" << std::endl;
+    if (this != &other) {
+        _type = other._type;
+    }
+    return *this;
 }
 
 AMateria::~AMateria() {

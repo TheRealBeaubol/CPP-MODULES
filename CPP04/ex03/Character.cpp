@@ -6,24 +6,55 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:59:36 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/08 18:59:37 by lboiteux         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:50:20 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character(std::string const & name) : _name(name) {
-    for (int i = 0; i < 4; i++)
+Character::Character() : _inventory() {
+    for (int i = 0; i < 4; i++) {
         _inventory[i] = NULL;
+    }
     std::cout << "\033[32m" << "A character has been created" << "\033[0m" << std::endl;
 }
 
-Character::Character(Character const & src) {
-    _name = src._name;
-    for (int i = 0; i < 4; i++)
-        _inventory[i] = src._inventory[i];
+Character::Character(std::string const &name) : _name(name), _inventory() {
+    for (int i = 0; i < 4; i++) {
+        _inventory[i] = NULL;
+    }
     std::cout << "\033[32m" << "A character has been created" << "\033[0m" << std::endl;
+}
+
+Character::Character(Character const &character) : _name(character._name), _inventory() {
+    for (int i = 0; i < 4; i++) {
+        if (character._inventory[i] != NULL)
+            _inventory[i] = character._inventory[i]->clone();
+        else
+            _inventory[i] = NULL;
+    }
+    std::cout << "\033[32m" << "A character has been created" << "\033[0m" << std::endl;
+}
+
+Character &Character::operator=(Character const &other) {
+    if (this != &other) {
+        _name = other._name;
+        for (int i = 0; i < 4; i++) {
+            if (_inventory[i] != NULL) {
+                delete _inventory[i];
+                _inventory[i] = NULL;
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            if (other._inventory[i] != NULL)
+                _inventory[i] = other._inventory[i]->clone();
+            else
+                _inventory[i] = NULL;
+        }
+    }
+    std::cout << "\033[32m" << "A character has been created" << "\033[0m" << std::endl;
+    return *this;
 }
 
 Character::~Character() {
@@ -31,16 +62,6 @@ Character::~Character() {
         delete _inventory[i];
     std::cout << "\033[31m" << "A character has been destroyed" << "\033[0m" << std::endl;
 }
-
-Character & Character::operator=(Character const & rhs) {
-    if (this != &rhs) {
-        _name = rhs._name;
-        for (int i = 0; i < 4; i++)
-            _inventory[i] = rhs._inventory[i];
-    }
-    return *this;
-}
-
 std::string const & Character::getName() const {
     return _name;
 }
