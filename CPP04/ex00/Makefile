@@ -6,7 +6,7 @@
 #    By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 22:20:43 by lboiteux          #+#    #+#              #
-#    Updated: 2024/10/08 16:39:18 by lboiteux         ###   ########.fr        #
+#    Updated: 2024/10/24 01:30:27 by lboiteux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ COLOR_4	= \033[1;38;5;255m
 COLOR_5	= \033[1;38;5;248m
 RESET	= \033[0m
 
-SRC						=	main.cpp Animals.cpp WrongAnimals.cpp
+SRC						=	main.cpp Animals.cpp WrongAnimals.cpp Cat.cpp Dog.cpp WrongCat.cpp
 OBJS 					=	$(SRC:.cpp=.o)
 
 all: $(NAME)

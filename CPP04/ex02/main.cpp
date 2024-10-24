@@ -1,17 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 15:56:21 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/23 18:59:13 by lboiteux         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "AAnimals.hpp"
 #include "WrongAnimals.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {

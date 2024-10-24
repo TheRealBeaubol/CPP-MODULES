@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/22 22:20:43 by lboiteux          #+#    #+#              #
-#    Updated: 2024/10/08 17:09:48 by lboiteux         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME					= 	fireworld
 
 CC						=	g++
@@ -23,7 +11,7 @@ COLOR_4	= \033[1;38;5;255m
 COLOR_5	= \033[1;38;5;248m
 RESET	= \033[0m
 
-SRC						=	main.cpp Animals.cpp WrongAnimals.cpp Brain.cpp
+SRC						=	main.cpp Animals.cpp WrongAnimals.cpp Cat.cpp Dog.cpp WrongCat.cpp Brain.cpp
 OBJS 					=	$(SRC:.cpp=.o)
 
 all: $(NAME)

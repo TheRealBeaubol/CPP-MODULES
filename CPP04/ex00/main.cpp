@@ -1,17 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 15:56:21 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/23 18:03:26 by lboiteux         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Animals.hpp"
 #include "WrongAnimals.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -35,17 +26,13 @@ int main()
     std::cout << "\033[1m\033[34m --------------[WRONG ANIMALS]--------------\033[0m" << std::endl;
     
     const WrongAnimal* meta2 = new WrongAnimal();
-    const WrongAnimal* wrongdogAnimal = new WrongDog();
     const WrongAnimal* wrongcatAnimal = new WrongCat();
    
-    std::cout << "Animal Type -> " << wrongdogAnimal->getType() << " " << std::endl;
     std::cout << "Animal Type -> " << wrongcatAnimal->getType() << " " << std::endl;
     wrongcatAnimal->makeSound();
-    wrongdogAnimal->makeSound();
     meta2->makeSound();
     
     delete meta2;
-    delete wrongdogAnimal;
     delete wrongcatAnimal;
     
     return 0;

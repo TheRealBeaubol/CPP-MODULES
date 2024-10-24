@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   WrongAnimals.cpp                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 15:56:53 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/10/23 17:59:29 by lboiteux         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "WrongAnimals.hpp"
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
@@ -42,62 +30,3 @@ void WrongAnimal::makeSound() const {
 std::string WrongAnimal::getType() const {
     return _type;
 }
-
-WrongDog::WrongDog(){
-    _type = "WrongDog";
-    std::cout << "\033[32m" << "A WrongDog has been created" << "\033[0m" << std::endl;
-}
-
-WrongDog::WrongDog(std::string type) : WrongAnimal(type) {
-    std::cout << "\033[32m" << "A WrongDog has been created" << "\033[0m" << std::endl;
-}
-
-WrongDog::WrongDog(const WrongDog &wrongdog) : WrongAnimal(wrongdog) {
-    std::cout << "\033[32m" << "A WrongDog has been created" << "\033[0m" << std::endl;
-}
-
-WrongDog &WrongDog::operator=(const WrongDog &other) {
-    std::cout << "\033[32m" << "A WrongDog has been created" << "\033[0m" << std::endl;
-    if (this != &other) {
-        WrongAnimal::operator=(other);
-    }
-    return *this;
-}
-
-WrongDog::~WrongDog() {
-    std::cout << "\033[31m" << "A WrongDog has been destroyed" << "\033[0m" << std::endl;
-}
-
-WrongCat::WrongCat() {
-    _type = "WrongCat";
-    std::cout << "\033[32m" << "A WrongCat has been created" << "\033[0m" << std::endl;
-}
-
-WrongCat::WrongCat(std::string type) : WrongAnimal(type) {
-    std::cout << "\033[32m" << "A WrongCat has been created" << "\033[0m" << std::endl;
-}
-
-WrongCat::WrongCat(const WrongCat &wrongcat) : WrongAnimal(wrongcat) {
-    std::cout << "\033[32m" << "A WrongCat has been created" << "\033[0m" << std::endl;
-}
-
-WrongCat &WrongCat::operator=(const WrongCat &other) {
-    std::cout << "\033[32m" << "A WrongCat has been created" << "\033[0m" << std::endl;
-    if (this != &other) {
-        WrongAnimal::operator=(other);
-    }
-    return *this;
-}
-
-WrongCat::~WrongCat() {
-    std::cout << "\033[31m" << "A WrongCat has been destroyed" << "\033[0m" << std::endl;
-}
-
-void WrongDog::makeSound() const {
-    std::cout << "\033[1m\033[36m" << "Bark Bark" << "\033[0m" << std::endl;
-}
-
-void WrongCat::makeSound() const {
-    std::cout << "\033[1m\033[36m" << "Meow Meow" << "\033[0m" << std::endl;
-}
-
