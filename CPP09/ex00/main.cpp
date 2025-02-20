@@ -6,18 +6,11 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:50:34 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/19 20:09:34 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:59:29 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-double stringToDouble(std::string str) {
-    std::stringstream ss(str);
-    double nb;
-    ss >> nb;
-    return nb;
-}
 
 bool check_time(std::string time) {
     std::tm tm = {};
@@ -41,55 +34,51 @@ bool check_value(std::string value) {
     return true;
 }
 
-std::map<std::string, double> read_input(std::ifstream &datafile) {
-    std::string buffer;
-    std::map<std::string, double> btc;
-    std::getline(datafile, buffer);
-    while (std::getline(datafile, buffer)) {
-        if (buffer.size() < 12) {
-            std::cerr << "Error: Invalid line format" << std::endl;
-        }
-        else {
-            if (check_time(buffer.substr(0, 10))) {
-                if (check_value(buffer.substr(13))) {
-                    btc.insert(std::pair<std::string, double>(buffer.substr(0, 10), stringToDouble(buffer.substr(13))));
-                }
-            }
-            else {
-                std::cerr << "Error: Invalid date format" << std::endl;
-            }
-        }
-    }
-    return btc;
-}
-
-void print_map(std::map<std::string, double> btc) {
-    for (std::map<std::string, double>::iterator it = btc.begin(); it != btc.end(); it++) {
-        std::cout << it->first << " " << it->second << std::endl;
-    }
-}
-
-void read_data(std::map<std::string, double> &btc) {
-    std::string buffer;
-    std::ifstream datafile;
-    datafile.open("data.csv");
-    std::getline(datafile, buffer);
-    (void)btc;
-}
-
 int main(int ac, char **av) {
 
     if (ac != 2) {
         std::cout << "Usage: ./btc [input.txt]" << std::endl;
         return 1;
     }
-        
-    std::string buffer;
+    
     std::ifstream datafile;
     datafile.open(av[1]);
 
-    std::map<std::string, double> btc;
-    btc = read_input(datafile);
-    read_data(btc);
-    print_map(btc);
+    std::string buffer;
+    std::string date;
+    std::string value;
+    double mult_val;
+    try {
+        Bitcoin b;
+        std::map<std::string, double> btc = b.getBtc();
+        std::map<std::string, double>::iterator it;
+        std::getline(datafile, buffer);
+        while (std::getline(datafile, buffer)) {
+            if (buffer.size() < 12) {
+                std::cerr << "Error: bad input => " << buffer << std::endl;
+            }
+            else {
+                date = buffer.substr(0, 10);
+                if (check_time(date)) {
+                    value = buffer.substr(13);
+                    if (check_value(value)) {
+                        if (btc.find(date) == btc.end()) {
+                            it = btc.lower_bound(date);
+                            mult_val = (it->second * stringToDouble(value));
+                        }
+                        else {
+                            mult_val = (btc[date] * stringToDouble(value));
+                        }
+                        std::cout << date << " => " << value << " = " << mult_val << std::endl;
+                    }
+                }
+                else {
+                    std::cerr << "Error: Invalid date format" << std::endl;
+                }
+            }
+        }
+    } catch (std::invalid_argument &e) {    
+        std::cerr << "Error: file not found." << std::endl;
+        return 1;
+    }   
 }
