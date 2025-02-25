@@ -6,13 +6,22 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:45:13 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/12/07 17:38:02 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/25 18:27:08 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
 Serializer::Serializer() {}
+
+Serializer::Serializer(const Serializer &serializer) {
+    (void)serializer;
+}
+
+Serializer &Serializer::operator=(const Serializer &other) {
+    (void)other;
+    return (*this);
+}
 
 Serializer::~Serializer() {}
 

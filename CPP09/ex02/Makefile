@@ -1,4 +1,4 @@
-NAME					= 	
+NAME					= 	PmergeMe
 
 CC						=	c++
 CPPFLAGS				=	-Wall -Wextra -Werror -std=c++98
@@ -11,7 +11,7 @@ COLOR_4	= \033[1;38;5;255m
 COLOR_5	= \033[1;38;5;248m
 RESET	= \033[0m
 
-SRC						=	.cpp
+SRC						=	main.cpp PmergeMe.cpp
 OBJS 					=	$(SRC:.cpp=.o)
 
 all: $(NAME)

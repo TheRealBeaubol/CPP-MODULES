@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:43:19 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/12/07 17:52:47 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/25 18:30:35 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int main() {
     std::cout << "s1: " << data2->s1 << std::endl;
     std::cout << "n: " << data2->n << std::endl;
     std::cout << "s2: " << data2->s2 << std::endl;
-
     delete data;
     return 0;
 }

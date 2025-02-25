@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:09:33 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/01/21 17:43:07 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/25 21:22:40 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,17 @@
 
 class ScalarConverter {
     private:
-        ScalarConverter();
-        ~ScalarConverter();
+        ScalarConverter() {};
+        ScalarConverter(const ScalarConverter &scalarConverter) {
+            (void)scalarConverter;
+        };
+        ScalarConverter &operator=(const ScalarConverter &other) {
+            (void)other;
+            return (*this);
+        };
+        ~ScalarConverter() {};
     public:
         static void convert(const std::string &literal);
-        class ImpossibleConversionException : public std::exception {
-            public:
-                virtual const char *what() const throw();
-        };
-        class NonDisplayableException : public std::exception {
-            public:
-                virtual const char *what() const throw();
-        };
 };
 
 #endif

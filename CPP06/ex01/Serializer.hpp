@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:43:52 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/12/07 17:51:35 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/25 18:26:47 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Data {
 class Serializer {
     private:
         Serializer();
+        Serializer(const Serializer &serializer);
+        Serializer &operator=(const Serializer &other);
         ~Serializer();
     public:
         static uintptr_t *serialize(Data *data);

@@ -11,7 +11,7 @@ COLOR_4	= \033[1;38;5;255m
 COLOR_5	= \033[1;38;5;248m
 RESET	= \033[0m
 
-SRC						=	main.cpp A.cpp B.cpp C.cpp Base.cpp
+SRC						=	main.cpp Base.cpp
 OBJS 					=	$(SRC:.cpp=.o)
 
 all: $(NAME)
