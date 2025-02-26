@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:42:39 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/25 21:28:28 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:46:55 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 # include <deque>
 # include <sstream>
 # include <algorithm>
+# include <sys/time.h>
+# include <iomanip>
 
-void sortFordJohnsonVector(std::vector<int> &v);
-void sortFordJohnsonDeque(std::deque<int> &d);
+void mergeInsertionSortDeque(std::deque<int> &d);
+void mergeInsertionSortVector(std::vector<int> &v);
 bool isNumber(std::string const &s, int &num);
 
 template <typename T>

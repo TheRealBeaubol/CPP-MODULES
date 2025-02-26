@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:42:26 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/25 21:35:46 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:27:15 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,50 @@ bool isNumber(std::string const &s, int &num) {
     return !ss.fail() && ss.eof();
 }
 
-void sortFordJohnsonVector(std::vector<int> &v) {
+void mergeInsertionSortVector(std::vector<int> &v) {
     if (v.size() <= 1)
         return;
-    std::vector<std::pair<int, int> > pairs;
-    std::vector<int> mainChain;
-    std::vector<int> pendingChain;
-    for (size_t i = 0; i + 1 < v.size(); i += 2) {
-        if (v[i] > v[i + 1]) {
-            std::swap(v[i], v[i + 1]);
+    std::vector<int> small, large;
+    for (size_t i = 0; i < v.size() - 1; i += 2) {
+        if (v[i] < v[i + 1]) {
+            small.push_back(v[i]);
+            large.push_back(v[i + 1]);
+        } else {
+            small.push_back(v[i + 1]);
+            large.push_back(v[i]);
         }
-        pairs.push_back(std::make_pair(v[i], v[i + 1]));
     }
-    if (v.size() % 2 == 1) {
-        pendingChain.push_back(v.back());
+    if (v.size() % 2 == 1)
+        large.push_back(v[v.size() - 1]);
+    mergeInsertionSortVector(large);
+    for (size_t i = 0; i < small.size(); i++) {
+        int val = small[i];
+        std::vector<int>::iterator it = std::lower_bound(large.begin(), large.end(), val);
+        large.insert(it, val);
     }
-    for (size_t i = 0; i < pairs.size(); i++) {
-        mainChain.push_back(pairs[i].second);
-    }
-    std::sort(mainChain.begin(), mainChain.end());
-    for (size_t i = 0; i < pairs.size(); i++)
-        pendingChain.push_back(pairs[i].first);
-    for (size_t i = 0; i < pendingChain.size(); i++) {
-        std::vector<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), pendingChain[i]);
-        mainChain.insert(it, pendingChain[i]);
-    }
-    v = mainChain;
+    v = large;
 }
 
-void sortFordJohnsonDeque(std::deque<int> &d) {
+void mergeInsertionSortDeque(std::deque<int> &d) {
     if (d.size() <= 1)
         return;
+    std::deque<int> small, large;
+    for (size_t i = 0; i < d.size() - 1; i += 2) {
+        if (d[i] < d[i + 1]) {
+            small.push_back(d[i]);
+            large.push_back(d[i + 1]);
+        } else {
+            small.push_back(d[i + 1]);
+            large.push_back(d[i]);
+        }
+    }
+    if (d.size() % 2 == 1)
+        large.push_back(d[d.size() - 1]);
+    mergeInsertionSortDeque(large);
+    for (size_t i = 0; i < small.size(); i++) {
+        int val = small[i];
+        std::deque<int>::iterator it = std::lower_bound(large.begin(), large.end(), val);
+        large.insert(it, val);
+    }
+    d = large;
 }
-
