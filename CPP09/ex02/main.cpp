@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:41:54 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/26 20:03:57 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:54:11 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int main(int ac, char **av) {
     struct timespec dEnd;
 
     clock_gettime(CLOCK_MONOTONIC, &vStart);
-    mergeInsertionSortVector(v);
+    fordJohnsonSortVector(v);
     clock_gettime(CLOCK_MONOTONIC, &vEnd);
 
     clock_gettime(CLOCK_MONOTONIC, &dStart);    
-    mergeInsertionSortDeque(d);
+    fordJohnsonSortDeque(d);
     clock_gettime(CLOCK_MONOTONIC, &dEnd);
 
     printStack(v, "After:    ");

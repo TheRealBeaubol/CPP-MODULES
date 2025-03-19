@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:05:15 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/01/22 17:27:28 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/03/10 21:10:05 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ Span &Span::operator=(const Span &other) {
 }
 
 Span::~Span() {}
+
+void Span::addMultipleNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+    if (_size + std::distance(begin, end) > _n) {
+        throw ExceedCapacityException();
+    }
+    _data.insert(_data.end(), begin, end);
+    _size += std::distance(begin, end);
+}
 
 void Span::addNumber(int n) {
     if (_size >= _n) {

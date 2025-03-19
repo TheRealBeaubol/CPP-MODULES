@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:26:21 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/12/11 17:07:21 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/03/08 15:50:48 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void    swap(SWAP &a, SWAP &b) {
 }
 
 template <typename MIN>
-MIN     min(MIN a, MIN b) {
+MIN     min(MIN &a, MIN &b) {
     return (b <= a ? b : a);
 }
 
 template <typename MAX>
-MAX     max(MAX a, MAX b) {
+MAX     max(MAX &a, MAX &b) {
     return (b >= a ? b : a);
 }
 

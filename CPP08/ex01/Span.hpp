@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:01:23 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/01/22 17:27:34 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/03/10 21:13:26 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <algorithm>
+# include <cstdlib>
+# include <ctime>
 # include <vector>
 # include <climits>
 # include <cstddef>
@@ -31,6 +33,7 @@ class Span {
         ~Span();
         Span &operator=(const Span &other);
         void addNumber(int n);
+        void addMultipleNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         int shortestSpan();
         int longestSpan();
         class ExceedCapacityException : public std::exception {

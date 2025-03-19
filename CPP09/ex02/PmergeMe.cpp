@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:42:26 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/26 19:27:15 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:53:53 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool isNumber(std::string const &s, int &num) {
     return !ss.fail() && ss.eof();
 }
 
-void mergeInsertionSortVector(std::vector<int> &v) {
+void fordJohnsonSortVector(std::vector<int> &v) {
     if (v.size() <= 1)
         return;
     std::vector<int> small, large;
@@ -33,7 +33,7 @@ void mergeInsertionSortVector(std::vector<int> &v) {
     }
     if (v.size() % 2 == 1)
         large.push_back(v[v.size() - 1]);
-    mergeInsertionSortVector(large);
+    fordJohnsonSortVector(large);
     for (size_t i = 0; i < small.size(); i++) {
         int val = small[i];
         std::vector<int>::iterator it = std::lower_bound(large.begin(), large.end(), val);
@@ -42,7 +42,7 @@ void mergeInsertionSortVector(std::vector<int> &v) {
     v = large;
 }
 
-void mergeInsertionSortDeque(std::deque<int> &d) {
+void fordJohnsonSortDeque(std::deque<int> &d) {
     if (d.size() <= 1)
         return;
     std::deque<int> small, large;
@@ -57,7 +57,7 @@ void mergeInsertionSortDeque(std::deque<int> &d) {
     }
     if (d.size() % 2 == 1)
         large.push_back(d[d.size() - 1]);
-    mergeInsertionSortDeque(large);
+    fordJohnsonSortDeque(large);
     for (size_t i = 0; i < small.size(); i++) {
         int val = small[i];
         std::deque<int>::iterator it = std::lower_bound(large.begin(), large.end(), val);

@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:09:25 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/25 21:23:05 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:38:56 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,30 +77,34 @@ void convertInt(const std::string &literal) {
 
 void convertFloat(const std::string &literal) {
     float value = std::strtof(literal.c_str(), NULL);
-    if (value == std::numeric_limits<float>::infinity() || value == -std::numeric_limits<float>::infinity() || std::isnan(value) || (value < 0 || value > 127))
+    if (value == std::numeric_limits<float>::infinity() || value == -std::numeric_limits<float>::infinity() || std::isnan(value) || (value < 0 || value > 127)) {
         std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+    }
     else {
         if (std::isprint(static_cast<char>(value)))
             std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
+        std::cout << "int: " << static_cast<int>(value) << std::endl;
     }
-    std::cout << "int: " << static_cast<int>(value) << std::endl;
     std::cout << "float: " << std::fixed << std::setprecision(1) << value << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
 void convertDouble(const std::string &literal) {
     double value = std::strtod(literal.c_str(), NULL);
-    if (value == std::numeric_limits<double>::infinity() || value == -std::numeric_limits<double>::infinity() || std::isnan(value) || (value < 0 || value > 127))
+    if (value == std::numeric_limits<double>::infinity() || value == -std::numeric_limits<double>::infinity() || std::isnan(value) || (value < 0 || value > 127)) {
         std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+    }
     else {
         if (std::isprint(static_cast<char>(value)))
             std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
+        std::cout << "int: " << static_cast<int>(value) << std::endl;
     }
-    std::cout << "int: " << static_cast<int>(value) << std::endl;
     std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
     std::cout << "double: " << value << std::endl;
 }

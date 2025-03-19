@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:30:44 by lboiteux          #+#    #+#             */
-/*   Updated: 2025/02/20 17:12:08 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:39:03 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@
 
 class RPN {
     private:
-        std::stack<double> _stack;
-    public:
-        RPN();
         RPN(const RPN &rpn);
         RPN &operator=(const RPN &other);
+    public:
+        RPN();
         ~RPN();
-        std::stack<double> getStack() const;
+        void calculate(std::string str);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lboiteux <lboiteux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:26:08 by lboiteux          #+#    #+#             */
-/*   Updated: 2024/12/11 17:12:11 by lboiteux         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:14:41 by lboiteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,25 @@ int main() {
     double tab4[] = {0.1, 1.1, 2.1, 3.1, 4.1};
     int *tab5 = NULL;
 
-    std::cout << "\033[1;32m" << "Test with int tab" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "--- Test with int tab ---" << "\033[0m" << std::endl;
     iter(tab, 5, print_element<int>);
 
-    std::cout << std::endl << "\033[1;32m" << "Test with char tab" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "-----------------------------" << "\033[0m" << std::endl;
+    std::cout << std::endl << "\033[1;32m" << "--- Test with char tab ---" << "\033[0m" << std::endl;
     iter(tab2, 5, print_element<char>);
 
-    std::cout << std::endl << "\033[1;32m" << "Test with string tab" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "-----------------------------" << "\033[0m" << std::endl;
+    std::cout << std::endl << "\033[1;32m" << "--- Test with string tab ---" << "\033[0m" << std::endl;
     iter(tab3, 5, print_element<std::string>);
-    
-    std::cout << std::endl << "\033[1;32m" << "Test with double tab" << "\033[0m" << std::endl;
+
+    std::cout << "\033[1;32m" << "-----------------------------" << "\033[0m" << std::endl;
+    std::cout << std::endl << "\033[1;32m" << "--- Test with double tab ---" << "\033[0m" << std::endl;
     iter(tab4, 5, print_element<double>);
 
-    std::cout << std::endl << "\033[1;32m" << "Test with empty tab" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "-----------------------------" << "\033[0m" << std::endl;
+    std::cout << std::endl << "\033[1;32m" << "--- Test with empty tab ---" << "\033[0m" << std::endl;
     iter(tab5, 0, print_element<int>);
 
+    std::cout << "\033[1;32m" << "-----------------------------" << "\033[0m" << std::endl;
     return 0;
 }
